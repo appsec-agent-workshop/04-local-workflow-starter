@@ -1,0 +1,25 @@
+{
+  "source": "codeql",
+  "repository": "appsec-agent-workshop/demo-api",
+  "alert_number": 2207,
+  "state": "open",
+  "severity": "medium",
+  "rule": {
+    "id": "js/sql-injection",
+    "name": "Database query built from user-controlled sources"
+  },
+  "location": {
+    "path": "src/routes/search.ts",
+    "start_line": 48,
+    "end_line": 54
+  },
+  "detected_at": "2026-06-11T13:05:00Z",
+  "known_context": {
+    "autofix": "available",
+    "security_campaign": "not_assigned",
+    "tests": "route tests exist, no malicious input tests found",
+    "owner": "data-services",
+    "codeql_status": "current",
+    "notes": "The route is authenticated. Authorization behavior and query parameter constraints are not included in the alert packet."
+  }
+}
