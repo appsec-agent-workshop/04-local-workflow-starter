@@ -24,6 +24,8 @@ Fetch live read-only alert evidence when you have access:
 bash scripts/fetch-security-alerts.sh
 ```
 
+By default this fetches from `appsec-agent-workshop/03-repo-agent-starter`, because that repo contains the workshop's live vulnerable app and security findings. You can pass another repository as the first argument if you want to test the workflow elsewhere.
+
 Open `prompts/local-triage-workflow-prompt.md`, paste it into Copilot CLI or the GitHub Copilot app, and point it at `evidence/live/code-scanning-alerts.json`. If live API access is unavailable, use the fallback fixture `alerts/codeql-sample.json`.
 
 ## Done when
