@@ -17,12 +17,12 @@ Use this workflow:
    - needs-reachability-analysis
    - needs-codeql-timeout-investigation
    - human-escalation
-6. Apply confidence ceilings for missing CodeQL, missing tests, unknown runtime exposure, or unproven reachability.
+6. Apply confidence ceilings for stale, missing, or timed-out CodeQL, missing tests, unknown runtime exposure, or unproven reachability.
 7. Draft the recommendation using reports/report-template.md.
 8. Challenge your own draft:
    - Did you claim reachability without evidence?
    - Did you treat Autofix as proof?
-   - Did you ignore missing CodeQL or tests?
+   - Did you ignore stale, missing, or timed-out CodeQL or tests?
    - Did you recommend automatic dismissal or severity change?
 9. Rewrite the final report after the challenge.
 ```

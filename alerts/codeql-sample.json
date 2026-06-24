@@ -10,8 +10,8 @@
   },
   "location": {
     "path": "src/routes/search.ts",
-    "start_line": 48,
-    "end_line": 54
+    "start_line": 1,
+    "end_line": 3
   },
   "detected_at": "2026-06-11T13:05:00Z",
   "known_context": {
