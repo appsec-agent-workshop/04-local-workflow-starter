@@ -8,11 +8,10 @@ out_dir="${2:-evidence/live}"
 
 mkdir -p "$out_dir"
 
-code_tmp="$(mktemp)"
-dependabot_tmp="$(mktemp)"
-trap 'rm -f "$code_tmp" "$dependabot_tmp"' EXIT
-
 rm -f "${out_dir}/code-scanning-alerts.json" "${out_dir}/dependabot-alerts.json"
+code_tmp="${out_dir}/code-scanning-alerts.json.partial"
+dependabot_tmp="${out_dir}/dependabot-alerts.json.partial"
+trap 'rm -f "$code_tmp" "$dependabot_tmp"' EXIT
 
 if ! gh api "repos/${repo}/code-scanning/alerts?state=open" > "$code_tmp"; then
   echo "Could not fetch code scanning alerts for ${repo}. Use fallback fixture alerts/codeql-sample.json if API access is unavailable." >&2
