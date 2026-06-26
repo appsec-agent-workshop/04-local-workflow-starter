@@ -7,7 +7,7 @@ You are helping me triage a Dependabot or CodeQL alert for human AppSec review.
 
 Use this workflow:
 
-1. Prefer live alert evidence from evidence/live/code-scanning-alerts.json and evidence/live/dependabot-alerts.json. In this starter, the default live evidence comes from appsec-agent-workshop/03-repo-agent-starter.
+1. Prefer live alert evidence from evidence/live/code-scanning-alerts.json and evidence/live/dependabot-alerts.json. In this starter, the default live evidence comes from appsec-agent-workshop/03-repo-agent-starter. If the starter repos were copied or forked, use the live evidence fetched from that OWNER/REPO instead.
 2. If live evidence is unavailable, read the fallback fixture alerts/codeql-sample.json.
 3. Extract deterministic alert facts into a table.
 4. Identify what repository context would be needed.

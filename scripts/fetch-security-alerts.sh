@@ -18,14 +18,16 @@ if ! gh api "repos/${repo}/code-scanning/alerts?state=open" > "$code_tmp"; then
   exit 1
 fi
 
-if ! gh api "repos/${repo}/dependabot/alerts?state=open" > "$dependabot_tmp"; then
-  echo "Could not fetch Dependabot alerts for ${repo}. Continue with the CodeQL fixture if API access is unavailable." >&2
-  exit 1
-fi
-
 mv "$code_tmp" "${out_dir}/code-scanning-alerts.json"
-mv "$dependabot_tmp" "${out_dir}/dependabot-alerts.json"
+
+if ! gh api "repos/${repo}/dependabot/alerts?state=open" > "$dependabot_tmp"; then
+  echo "Could not fetch Dependabot alerts for ${repo}. Continuing with live CodeQL evidence only." >&2
+else
+  mv "$dependabot_tmp" "${out_dir}/dependabot-alerts.json"
+fi
 
 echo "Wrote live read-only alert evidence to ${out_dir}/"
 echo "- ${out_dir}/code-scanning-alerts.json"
-echo "- ${out_dir}/dependabot-alerts.json"
+if [[ -f "${out_dir}/dependabot-alerts.json" ]]; then
+  echo "- ${out_dir}/dependabot-alerts.json"
+fi
